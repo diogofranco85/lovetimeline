@@ -7,7 +7,7 @@ import {
   getURL,
   getErrorRedirect,
   calculateTrialEndUnixTimestamp
-} from '@/utils/helpers';
+} from '@/utils/helper';
 import { Tables } from '@/types_db';
 import { stripe } from './config';
 

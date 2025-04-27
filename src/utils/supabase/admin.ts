@@ -14,7 +14,7 @@ const TRIAL_PERIOD_DAYS = 0;
 // as it has admin privileges and overwrites RLS policies!
 const supabaseAdmin = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
 
 const upsertProductRecord = async (product: Stripe.Product) => {
@@ -245,10 +245,10 @@ const manageSubscriptionStatusChange = async (
       ? toDateTime(subscription.canceled_at).toISOString()
       : null,
     current_period_start: toDateTime(
-      subscription.current_period_start
+      (subscription as any).current_period_start
     ).toISOString(),
     current_period_end: toDateTime(
-      subscription.current_period_end
+      (subscription as any).current_period_end
     ).toISOString(),
     created: toDateTime(subscription.created).toISOString(),
     ended_at: subscription.ended_at
@@ -274,7 +274,6 @@ const manageSubscriptionStatusChange = async (
   // For a new subscription copy the billing details to the customer object.
   // NOTE: This is a costly operation and should happen at the very end.
   if (createAction && subscription.default_payment_method && uuid)
-    // @ts-expect-error - Stripe types are not up to date with the latest API version
     await copyBillingDetailsToCustomer(
       uuid,
       subscription.default_payment_method as Stripe.PaymentMethod

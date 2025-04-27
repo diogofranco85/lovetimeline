@@ -30,7 +30,7 @@ export function Footer() {
                     </a>
                   ) : (
                     <Link
-                      href={product.link}
+                      href={product.link as any}
                       className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
                     >
                       {product.text}
@@ -54,7 +54,7 @@ export function Footer() {
                     </a>
                   ) : (
                     <Link
-                      href={company.link}
+                      href={company.link as any}
                       className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
                     >
                       {company.text}
@@ -78,7 +78,7 @@ export function Footer() {
                     </a>
                   ) : (
                     <Link
-                      href={support.link}
+                      href={support.link as any}
                       className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
                     >
                       {support.text}
