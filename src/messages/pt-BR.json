@@ -1,0 +1,42 @@
+{
+  "header": {
+    "title": "Love Timeline",
+    "about": "Sobre nós",
+    "signIn": "Entrar",
+    "signUp": "Inscreva se",
+    "resources": "Recursos",
+    "testimonials": "Depoimentos",
+    "plans": "Planos",
+    "blog": "Blog"
+  },
+  "about": {
+    "title": "Sobre nós"
+  },
+  "plan": {
+    "moments10": "Até 10 momentos",
+    "moments25": "Até 25 momentos",
+    "moments50": "Até 50 momentos",
+    "featuresOnlyImage": "Somente Imagens",
+    "featuresImageAndVideos": "Imagens e Videos",
+    "storage100mb": "Armazenamento básico (100MB)",
+    "storage500mb": "Armazenamento básico (500MB)",
+    "storage2GB": "Armazenamento premium (2GB)",
+    "timebasic": "Timeline básica",
+    "CustomTimeline": "Timeline personalizada",
+    "SpecialDate": "Lembretes de datas especiais",
+    "mostPopular": "Mais Popular",
+    "themes": "Temas exclusivos",
+    "support": "Suporte prioritário",
+    "AllMonthlyPlan": "Tudo do plano mensal",
+    "planMothly": "Plano Mensal",
+    "planFree": "Plano Gratuito",
+    "planAnnual": "Plano Anual",
+    "forCouples": "Para casais apaixonados",
+    "saveOver20": "Economize mais de 20%",
+    "periodMonthly": "por mês",
+    "periodAnnual": "por ano",
+    "currencySymbol": "R$",
+    "textHeader": "Escolha o plano ideal para sua história",
+    "textSubTitle": "Planos flexíveis para todas as fases do relacionamento."
+  }
+}

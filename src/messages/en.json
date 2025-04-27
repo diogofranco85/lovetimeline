@@ -1,0 +1,42 @@
+{
+  "header": {
+    "title": "Love Timeline",
+    "about": "About us",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "resources": "Resources",
+    "testimonials": "Testimonials",
+    "plans": "Plans",
+    "blog": "Blog"
+  },
+  "about": {
+    "title": "About us"
+  },
+  "plan": {
+    "moments10": "Up to 10 moments",
+    "moments25": "Up to 25 moments",
+    "moments50": "Up to 50 moments",
+    "featuresOnlyImage": "Images only",
+    "featuresImageAndVideos": "Images and videos",
+    "storage100mb": "Basic storage (100MB)",
+    "storage500mb": "Basic storage (500MB)",
+    "storage2GB": "Premium storage (2GB)",
+    "timebasic": "Basic timeline",
+    "CustomTimeline": "Custom timeline",
+    "SpecialDate": "Special date reminders",
+    "mostPopular": "Most popular",
+    "themes": "Exclusive themes",
+    "support": "Priority support",
+    "AllMonthlyPlan": "Everything from the monthly plan",
+    "planMothly": "Monthly plan",
+    "planFree": "Free plan",
+    "planAnnual": "Annual plan",
+    "forCouples": "For couples in love",
+    "saveOver20": "Save over 20%",
+    "periodMonthly": "per month",
+    "periodAnnual": "per year",
+    "currencySymbol": "$",
+    "textHeader": "Choose the ideal plan for your story",
+    "textSubTitle": "Flexible plans for all stages of the relationship."
+  }
+}
