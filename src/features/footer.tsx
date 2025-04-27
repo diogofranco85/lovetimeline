@@ -21,12 +21,21 @@ export function Footer() {
             <ul className="space-y-2">
               {appConfig.links.footer.products.map(product => (
                 <li key={product.link}>
-                  <Link
-                    href={product.link}
-                    className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
-                  >
-                    {product.text}
-                  </Link>
+                  {product.link.includes('#') ? (
+                    <a
+                      href={product.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {product.text}
+                    </a>
+                  ) : (
+                    <Link
+                      href={product.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {product.text}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -36,9 +45,21 @@ export function Footer() {
             <ul className="space-y-2">
               {appConfig.links.footer.companies.map((company) => (
                 <li key={company.link}>
-                  <Link href={company.link} className="text-sm text-muted-foreground hover:text-purple-500 transition-colors">
-                    {company.text}
-                  </Link>
+                  {company.link.includes('#') ? (
+                    <a
+                      href={company.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {company.text}
+                    </a>
+                  ) : (
+                    <Link
+                      href={company.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {company.text}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -48,12 +69,21 @@ export function Footer() {
             <ul className="space-y-2">
               {appConfig.links.footer.supports.map(support => (
                 <li key={support.link}>
-                  <Link
-                    href={support.link}
-                    className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
-                  >
-                    {support.text}
-                  </Link>
+                  {support.link.includes('#') ? (
+                    <a
+                      href={support.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {support.text}
+                    </a>
+                  ) : (
+                    <Link
+                      href={support.link}
+                      className="text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                    >
+                      {support.text}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -3,8 +3,7 @@ import Stripe from 'stripe';
 export const stripe = new Stripe(
   process.env.STRIPE_SK ?? '',
   {
-
-    //@ts-ignore
+    // @ts-expect-error - Stripe types are not up to date with the latest API version
     apiVersion: null,
     appInfo: {
       name: 'Love timeline',
