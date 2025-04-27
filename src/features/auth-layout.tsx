@@ -30,9 +30,8 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900 to-purple-800/80 mix-blend-multiply opacity-35" />
         </div>
         <div className="relative z-20 flex items-center text-lg font-medium">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
             <Heart className="h-6 w-6 text-purple-500 ml-2 md:ml-8 lg:ml-8" />
-
             <span className="text-sm text-center md:text-xl font-bold">{t("title")}</span>
           </Link>
         </div>
@@ -47,10 +46,10 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
         </div>
       </div>
       <div >
-        <div>
-          <Link href="/" className="flex text-purple-700 m-10">
-            <ArrowLeft />
-            Voltar para a Home
+        <div className="flex">
+          <Link href="/" className="flex text-purple-700 m-10 text-sm gap-2 hover:text-white hover:bg-purple-700 p-2 px-4 rounded">
+            <ArrowLeft size={18} />
+            Página Inicial
           </Link>
         </div>
         <div className="lg:p-8">

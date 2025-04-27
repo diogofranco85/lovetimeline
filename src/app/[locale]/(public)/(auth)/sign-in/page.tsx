@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { AuthLayout } from "@/features/auth-layout"
 import { Link } from "@/i18n/navigation"
+import { signin } from "@/actions/login/actions"
 
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description: "Faça login na sua conta",
 }
 
-export default function LoginPage() {
+export default async function LoginPage() {
   return (
     <AuthLayout title="Login" subtitle="Bem-vindo de volta! Faça login na sua conta para continuar.">
       <div className="grid gap-6">
@@ -24,6 +25,7 @@ export default function LoginPage() {
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                name="email"
                 placeholder="nome@exemplo.com"
                 type="email"
                 autoCapitalize="none"
@@ -45,6 +47,7 @@ export default function LoginPage() {
               </div>
               <Input
                 id="password"
+                name="password"
                 placeholder="••••••••"
                 type="password"
                 autoCapitalize="none"
@@ -54,7 +57,7 @@ export default function LoginPage() {
                 className="border-purple-200 focus-visible:ring-purple-500"
               />
             </div>
-            <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
+            <Button formAction={signin} type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
               Entrar <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
