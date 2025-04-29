@@ -1,18 +1,17 @@
 "use client"
 
-import type { Metadata } from "next"
-import { ArrowRight, CircleFadingPlus } from "lucide-react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { ArrowRight, CircleFadingPlus } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
+import { signin } from "@/actions/login/actions"
 import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { AuthLayout } from "@/features/auth-layout"
 import { Link } from "@/i18n/navigation"
-import { signin } from "@/actions/login/actions"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
 const loginSchema = z.object({
   email: z.string().email("Email inválido"),
@@ -101,6 +100,7 @@ export default function LoginPage() {
                 </FormItem>
               )}
             />
+
             <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
               Entrar <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

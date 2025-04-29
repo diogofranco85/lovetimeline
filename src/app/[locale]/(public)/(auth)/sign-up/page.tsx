@@ -13,6 +13,7 @@ import { AuthLayout } from "@/features/auth-layout"
 import { Checkbox } from "@radix-ui/react-checkbox"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { signup } from "@/actions/login/actions"
+import { Label } from "@/components/ui/label"
 
 const signupSchema = z.object({
   firstName: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
@@ -170,27 +171,22 @@ export default function SignupPage() {
               control={form.control}
               name="terms"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                <FormItem className="flex flex-row items-center gap-2">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      className="border-purple-300 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                      className="border-purple-300 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600 mt-0.5"
                     />
                   </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel className="text-sm font-normal">
-                      Eu concordo com os{" "}
-                      <Link href="/terms" className="underline underline-offset-4 hover:text-primary">
-                        Termos de Serviço
-                      </Link>{" "}
-                      e{" "}
-                      <Link href="/privacy" className="underline underline-offset-4 hover:text-primary">
-                        Política de Privacidade
-                      </Link>
-                      .
-                    </FormLabel>
-                    <FormMessage />
+                  <div className="flex flex-col w-full">
+                    <Label className="text-sm font-normal m-0 p-0">
+                      Eu concordo com os{' '}
+                      <Link href="/terms" className="underline underline-offset-4 hover:text-primary">Termos de Serviço</Link>{' '}
+                      e{' '}
+                      <Link href="/privacy" className="underline underline-offset-4 hover:text-primary">Política de Privacidade</Link>.
+                    </Label>
+                    <FormMessage className="text-destructive text-xs -mt-1" />
                   </div>
                 </FormItem>
               )}
