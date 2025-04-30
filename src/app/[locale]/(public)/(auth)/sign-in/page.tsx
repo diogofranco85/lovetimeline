@@ -5,7 +5,7 @@ import { ArrowRight, CircleFadingPlus } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { signin } from "@/actions/login/actions"
+import { signin, SignUpGoogle } from "@/actions/login/actions"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
@@ -114,7 +114,7 @@ export default function LoginPage() {
             <span className="bg-background px-2 text-muted-foreground">Ou continue com</span>
           </div>
         </div>
-        <Button variant="outline" className="w-full border-purple-200 hover:bg-purple-50" type="button">
+        <Button variant="outline" className="w-full border-purple-200 hover:bg-purple-50" type="button" onClick={SignUpGoogle}>
           <CircleFadingPlus />
           Google
         </Button>

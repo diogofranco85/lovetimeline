@@ -2,6 +2,7 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import { getURL } from '@/utils/helper'
 
 export async function signin(formData: FormData) {
   const supabase = await createClient()
@@ -27,9 +28,9 @@ export async function signup(formData: FormData) {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
   }
-  const {data: supabaseData, error} = await supabase.auth.signUp(data)
+  const { data: supabaseData, error } = await supabase.auth.signUp(data)
 
-  if(supabaseData.user){
+  if (supabaseData.user) {
     const first_name = formData.get("firstName") as string
     const last_name = formData.get("lastName") as string
     const update = {
@@ -40,10 +41,28 @@ export async function signup(formData: FormData) {
     await supabase.from("users").update(update).eq('id', supabaseData.user?.id)
 
   }
-  
+
   if (error) {
     redirect('/error?errorMessage=' + error.message)
   }
   revalidatePath('/', 'layout')
   redirect('/sign-up-confirm')
+}
+
+export async function SignUpGoogle() {
+  const supabase = await createClient()
+
+  const response = await supabase.auth.signInWithOAuth({
+    provider: "google",
+
+    options: {
+      redirectTo: getURL("/api/oauth/callback")
+    }
+  })
+
+  if (response.data && response.data.url) {
+    redirect(response.data.url)
+  }
+
+  console.log(response)
 }
