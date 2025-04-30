@@ -51,5 +51,9 @@ export const routing = defineRouting({
       en: '/forget-password',
       "pt-BR": "/recuperar-senha"
     },
+    '/timeline': {
+      en: '/timeline',
+      "pt-BR": "/linha-do-tempo"
+    },
   }
 });

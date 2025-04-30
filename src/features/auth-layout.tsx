@@ -4,6 +4,9 @@ import { Link } from "@/i18n/navigation"
 import { useTranslations } from "next-intl"
 import { ArrowLeft, Heart } from "lucide-react"
 import { bucketUrl } from "@/helper/url"
+import { useEffect } from "react"
+import { createClient } from "@/utils/supabase/server"
+import { useRouter } from "next/navigation"
 
 interface AuthLayoutProps {
   children: React.ReactNode
@@ -12,6 +15,21 @@ interface AuthLayoutProps {
 }
 
 export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const getSession = async () => {
+      const supabase = await createClient();
+      const { data: { session }, error } = await supabase.auth.getSession();
+
+      if (session) {
+        router.replace("/timeline");
+      }
+    }
+
+    getSession();
+  })
 
   const t = useTranslations('header');
 
