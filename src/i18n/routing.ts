@@ -15,6 +15,10 @@ export const routing = defineRouting({
       en: '/sign-in',
       "pt-BR": "/entrar"
     },
+    '/sign-up-confirm': {
+      en: '/sign-up-confirm',
+      "pt-BR": "/confirmacao-de-inscricao"
+    },
     '/sign-out': {
       en: '/sign-out',
       "pt-BR": "/sair"

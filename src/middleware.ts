@@ -3,16 +3,17 @@ import { routing } from './i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from './utils/supabase/client';
 
-const PUBLIC_ROUTES = ['/', '/sign-in', '/sign-up', 'forget-password', 'blog', '/api', '/_next', '/favicon.ico']
+const PUBLIC_ROUTES = ['/', '/sign-in', '/sign-up', 'forget-password', '/blog', '/api', '/_next', '/favicon.ico']
 
 function isPublicRoute(pathname: string) {
   return PUBLIC_ROUTES.some((route) => pathname.startsWith(route))
 }
 
-export default function middleware(request: NextRequest,) {
+
+export default async function middleware(request: NextRequest) {
   const intlResponse = createMiddleware(routing);
 
-  if (intlResponse) return intlResponse
+  if (intlResponse) return intlResponse(request)
 
   const supabase = createClient()
 

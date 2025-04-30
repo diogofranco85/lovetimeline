@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { AuthLayout } from "@/features/auth-layout"
-import { Checkbox } from "@radix-ui/react-checkbox"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { signup } from "@/actions/login/actions"
 import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
 
 const signupSchema = z.object({
   firstName: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
@@ -40,7 +40,7 @@ export default function SignupPage() {
       email: "",
       password: "",
       confirmPassword: "",
-      terms: false,
+      terms: true,
     },
   })
 
@@ -179,7 +179,12 @@ export default function SignupPage() {
                       className="border-purple-300 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600 mt-0.5"
                     />
                   </FormControl>
-                  <div className="flex flex-col w-full">
+                  <div >
+                  <Label className="text-[0.7rem] flex gap-0">
+                  Eu concordo com o termo de Serviço e a política de privacidade
+                  </Label>
+                  </div>
+                  {/* <div className="flex flex-col w-full">
                     <Label className="text-sm font-normal m-0 p-0">
                       Eu concordo com os{' '}
                       <Link href="/terms" className="underline underline-offset-4 hover:text-primary">Termos de Serviço</Link>{' '}
@@ -187,7 +192,7 @@ export default function SignupPage() {
                       <Link href="/privacy" className="underline underline-offset-4 hover:text-primary">Política de Privacidade</Link>.
                     </Label>
                     <FormMessage className="text-destructive text-xs -mt-1" />
-                  </div>
+                  </div> */}
                 </FormItem>
               )}
             />

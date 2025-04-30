@@ -27,10 +27,23 @@ export async function signup(formData: FormData) {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
   }
-  const { error } = await supabase.auth.signUp(data)
+  const {data: supabaseData, error} = await supabase.auth.signUp(data)
+
+  if(supabaseData.user){
+    const first_name = formData.get("firstName") as string
+    const last_name = formData.get("lastName") as string
+    const update = {
+      first_name,
+      last_name,
+      full_name: `${first_name} ${last_name}`
+    }
+    await supabase.from("users").update(update).eq('id', supabaseData.user?.id)
+
+  }
+  
   if (error) {
     redirect('/error?errorMessage=' + error.message)
   }
   revalidatePath('/', 'layout')
-  redirect('/account')
+  redirect('/sign-up-confirm')
 }
